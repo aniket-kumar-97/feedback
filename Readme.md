@@ -40,7 +40,7 @@ curl --location 'http://localhost:8080/api/v1/create-customer-feedback' \
 }'
 ```
 
-`create feedback`
+`Get feedback`
 
 ```
 curl --location 'http://localhost:8080/api/v1/feedbackByUserId/64313550dfa9117f230f3756'
