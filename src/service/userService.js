@@ -19,7 +19,7 @@ const signup = async (req, res) => {
             ]
         );
 
-        if (userData[0] !== null || userData[1] !== null) {
+        if (userData[0].length !== 0 || userData[1].length !== 0) {
             return res.json({statusCode: 400, msg: "User already Exists with email/password"})
         }
 
@@ -30,8 +30,7 @@ const signup = async (req, res) => {
             name: reqBody.name,
             email: reqBody.email,
             password: hash,
-            phone: reqBody.phone,
-            role: "USER"
+            phone: reqBody.phone
         })
         return res.json({statusCode: 200});
     } catch (e) {
