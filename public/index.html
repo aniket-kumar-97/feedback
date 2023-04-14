@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login Page </h1>
+<form id="login">
+    <div class="phone-div">
+        <label for = "email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for = "password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </div>
+</form>
+<script>
+    const sub = document.getElementById("login");
+
+    sub.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const formData = new FormData(sub);
+        const data = Object.fromEntries(formData);
+
+        fetch('/api/v1/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.statusCode === 200) {
+                    localStorage.setItem("userId", res.userId);
+                    window.location.href = "feedbackForm.html";
+                }
+            }).catch(e => {
+            console.log("error ::", e);
+        })
+    });
+
+</script>
+</body>
+</html>

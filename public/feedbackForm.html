@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feedback</title>
+</head>
+<body>
+<h1>Feedback</h1>
+<form id="feedback">
+<div>
+    <h3>Delivery Feedback</h3>
+    <div class="delivery-feedback">
+        <label>Delivery Rating: </label><br>
+        <div class="star-rating" style="padding-top: 10px;padding-bottom: 10px">
+            <fieldset style="background-color:#CCC; max-width:350px; padding:16px;">
+                <input type="radio" id="star5" name="rating" value="5"/><label for="star5" title="Outstanding">5
+                stars</label>
+                <input type="radio" id="star4" name="rating" value="4"/><label for="star4" title="Very Good">4
+                stars</label>
+                <input type="radio" id="star3" name="rating" value="3"/><label for="star3" title="Good">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2"/><label for="star2" title="Poor">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1"/><label for="star1" title="Very Poor">1
+                star</label>
+            </fieldset>
+        </div>
+        <label>Is Delivery Boy wearing mask</label>
+        <div style="padding-top: 10px;padding-bottom: 10px">
+        <fieldset style="background-color:#CCC; max-width:100px; padding:16px;">
+            <input type="radio" id="yes" name="wearing_mask" value="yes"/><label for="yes" title="yes">Yes</label>
+            <input type="radio" id="no" name="wearing_mask" value="no"/><label for="no" title="no">No</label>
+        </fieldset>
+        </div>
+        <label>Is package left on doorstep</label>
+        <div style="padding-top: 10px;padding-bottom: 10px">
+            <fieldset style="background-color:#CCC; max-width:100px; padding:16px;">
+                <input type="radio" id="package-yes" name="packet_left_doorstep" value="yes"/><label for="package-yes" title="yes">Yes</label>
+                <input type="radio" id="package-no" name="packet_left_doorstep" value="no"/><label for="package-no" title="no">No</label>
+            </fieldset>
+        </div>
+
+        <label for="delivery-comment">Comments</label><br>
+        <textarea id="delivery-comment" name="delivery_comment" rows="4" cols="50" style="resize: none"></textarea>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="restaurant-feedback">
+        <h3>Restaurant Feedback</h3>
+        <label>Food Rating: </label><br>
+        <div class="food-star-rating" style="padding-top: 10px;padding-bottom: 10px">
+            <fieldset style="background-color:#CCC; max-width:350px; padding:16px;">
+                <input type="radio" id="food_star5" name="food_rating" value="5"/>
+                <label for="food_star5" title="Outstanding">5 stars</label>
+                <input type="radio" id="food_star4" name="food_rating" value="4"/>
+                <label for="food_star4" title="Very Good">4 stars</label>
+                <input type="radio" id="food_star3" name="food_rating" value="3"/>
+                <label for="food_star3" title="Good">3 stars</label>
+                <input type="radio" id="food_star2" name="food_rating" value="2"/>
+                <label for="food_star2" title="Poor">2 stars</label>
+                <input type="radio" id="food_star1" name="food_rating" value="1"/>
+                <label for="food_star1" title="Very Poor">1
+                star</label>
+            </fieldset>
+        </div>
+        <div class="food-taste">
+            <label>Food Taste: </label><br>
+            <fieldset style="background-color:#CCC; max-width:440px; padding:16px;">
+                <input type="radio" id="food_taste_star5" name="food_taste_rating" value="5"/>
+                <label for="food_taste_star5" title="Outstanding">Outstanding</label>
+                <input type="radio" id="food_taste_star4" name="food_taste_rating" value="4"/>
+                <label for="food_taste_star4" title="Very Good">Very Good</label>
+                <input type="radio" id="food_taste_star3" name="food_taste_rating" value="3"/>
+                <label for="food_taste_star3" title="Good">Good</label>
+                <input type="radio" id="food_taste_star2" name="food_taste_rating" value="2"/>
+                <label for="food_taste_star2" title="Poor">Poor</label>
+                <input type="radio" id="food_taste_star1" name="food_taste_rating" value="1"/>
+                <label for="food_taste_star1" title="Very Poor">Very Poor</label>
+            </fieldset>
+        </div>
+        <div class="quality-food" style="margin-top: 10px">
+            <label>Quantity of Food</label>
+            <fieldset style="margin-top: 10px; background-color:#CCC; max-width:440px; padding:16px;">
+                <input type="radio" id="food_quality_star5" name="food_quality_rating" value="5"/>
+                <label for="food_quality_star5" title="Outstanding">Outstanding</label>
+                <input type="radio" id="food_quality_star4" name="food_quality_rating" value="4"/>
+                <label for="food_quality_star4" title="Very Good">Very Good</label>
+                <input type="radio" id="food_quality_star3" name="food_quality_rating" value="3"/>
+                <label for="food_quality_star3" title="Good">Good</label>
+                <input type="radio" id="food_quality_star2" name="food_quality_rating" value="2"/>
+                <label for="food_quality_star2" title="Poor">Poor</label>
+                <input type="radio" id="food_quality_star1" name="food_quality_rating" value="1"/>
+                <label for="food_quality_star1" title="Very Poor">Very Poor</label>
+                </fieldset>
+        </div>
+        <label for="restaurant-comment">Comments</label><br>
+        <textarea id="restaurant-comment" name="restaurant_comment" rows="4" cols="50" style="resize: none"></textarea>
+    </div>
+    <button style="margin-top: 10px" type="submit">Submit</button>
+</div>
+</form>
+<script>
+    const sub = document.getElementById("feedback");
+
+    sub.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const formData = new FormData(sub);
+        const userId = localStorage.getItem("userId");
+        const data = Object.fromEntries(formData);
+        data["userId"] = userId;
+
+        fetch('/api/v1/customer-feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.statusCode === 200) {
+                    // localStorage.setItem("userId", res.userId);
+                    // window.location.href = "feedbackForm.html";
+                }
+            }).catch(e => {
+            console.log("error ::", e.msg, e.stack);
+        })
+    });
+</script>
+</body>
+</html>
