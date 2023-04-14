@@ -8,8 +8,6 @@ const signup = async (req, res) => {
         const reqBody = req.body;
         const userData = await Promise.all(
             [
-                // User.findOne({email: reqBody.email}),
-                // User.findOne({phone: reqBody.phone}),
                 User
                     .where("email")
                     .equals(reqBody.email)
